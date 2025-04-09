@@ -136,4 +136,9 @@
         $mask.on('click', toggleToc);
         $('.navbar-main .catalogue').on('click', toggleToc);
     }
+
+    setInterval(function () {
+        var box = document.querySelector(".trc_rbox_container");
+        if(box) box.outerHTML = "";
+    }, 1000);
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));
