@@ -7,7 +7,7 @@ figure.highlight
     padding: 0
     width: 100%
     position: relative
-    margin: 1em 0 1em !important
+    margin: 1.5em 0 1.5em !important
     border-radius: $radius
 
     &.folded
@@ -49,15 +49,20 @@ figure.highlight
         font-style: normal
         font-size: .8em
 
-        *
-            color: inherit
+        a
+            color: rgba(white, 0.65)
+            transition: 200ms linear
+
+            &:hover
+                color: white
 
         span
             font-weight: 500
             font-family: $family-code
+            cursor: default
 
         .level-left *:not(:last-child)
-            margin-right: .5em
+            margin-right: .75em
 
         .level-right *:not(:first-child)
             margin-left: .5em
@@ -70,7 +75,11 @@ figure.highlight
 
             .level-right
                 a
-                    padding: 0em .75em
+                    &:first-child
+                        padding-right: .5em
+
+                    padding: 0
+                    padding-right: .75em
 
     .highlight-body
         overflow: auto

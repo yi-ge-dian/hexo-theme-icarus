@@ -52,9 +52,13 @@ module.exports = class extends Component {
         const noIndex = helper.is_archive() || helper.is_category() || helper.is_tag();
 
         const language = page.lang || page.language || config.language;
+        // const fontCssUrl = {
+        //     default: fontcdn('Ubuntu:wght@400;600&family=Source+Code+Pro', 'css2'),
+        //     cyberpunk: fontcdn('Oxanium:wght@300;400;600&family=Roboto+Mono', 'css2')
+        // };
         const fontCssUrl = {
-            default: fontcdn('Ubuntu:wght@400;600&family=Source+Code+Pro', 'css2'),
-            cyberpunk: fontcdn('Oxanium:wght@300;400;600&family=Roboto+Mono', 'css2')
+            default: fontcdn('Noto+Serif+SC:wght@400;700&family=Bitter:wght@400;700&family=Fira+Code&display=swap', 'css2'),
+            cyberpunk: fontcdn('Oxanium:wght@300;400;600&family=Fira+Code', 'css')
         };
 
         let hlTheme, images;

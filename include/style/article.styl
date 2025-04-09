@@ -1,7 +1,11 @@
 /* ---------------------------------
  *    Article Summary and Content
  * --------------------------------- */
-$article-font-size ?= 1.1rem
+$article-font-size ?= 1.2rem
+
+.underlined
+    border-bottom: 1px solid rgba(black, .1)
+    padding-bottom: .2em
 
 article
     &.media
@@ -22,7 +26,7 @@ article
                 width: 100%
                 height: 100%
 
-        .title
+        .title:not(.not-article-part)
             @extend .is-size-6
             margin-bottom: .25em
 
@@ -40,6 +44,14 @@ article
                 line-height: inherit
 
     &.article
+        padding: 2.25rem
+        padding-top: 1.5rem
+
+        .title:not(.not-article-part)
+            font-size: 2.5rem
+            font-weight: bold
+            margin-top: 10px
+
         .article-meta, .article-tags
             color: $text-light
 
@@ -54,11 +66,20 @@ article
             word-wrap: break-word
             font-size: $article-font-size
 
+            ul p:first-child
+              margin-top: 1.6rem
+              margin-bottom: .3em
+
+            li
+                margin-top: 1em
+
             h1
                 font-size: 1.75em
+                @extend .underlined
 
             h2
                 font-size: 1.5em
+                @extend .underlined
 
             h3
                 font-size: 1.25em
@@ -88,6 +109,9 @@ article
                     strong + cite
                         margin-left: .5em
 
+            .message
+                font-size: 1.1rem
+
             .message.message-immersive
                 border-radius: 0
                 margin: 0 0 - $card-content-padding $card-content-padding 0 - $card-content-padding
@@ -98,6 +122,21 @@ article
         .article-tags
             display: flex
             flex-wrap: wrap
+
+    &.article-post
+        .title
+            @extend .underlined
+            padding-bottom: .4em
+            margin-bottom: .5em
+
+        .content
+            line-height: 1.8
+
+
+        .content-end-separator
+            border-bottom: 6px dotted rgba(black, .3)
+            margin-top: 4rem
+            margin-bottom: 2.25rem
 
 .rtl
     direction: rtl
@@ -168,13 +207,12 @@ article
         .level-item
             @extend .mr-4
 
-        .icons
-            .icon
-                @extend .ml-1
-                width: 1.2em
-                height: 1.2em
-                font-size: 1.2em
-                vertical-align: bottom
+        .icon
+            @extend .mr-1
+            width: 1.2em
+            height: 1.2em
+            font-size: 1.2em
+            vertical-align: bottom
 
         h6
             @extend .is-size-7

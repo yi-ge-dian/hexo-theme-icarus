@@ -7,8 +7,12 @@ $navbar-item-margin-v ?= 0
 $navbar-item-margin-h ?= 0
 
 .navbar-main
-    box-shadow: $shadow
-
+    font-size: 1.25em
+    font-weight: bold
+    border-bottom: 3px solid transparent
+    border-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 100%)
+    border-image-slice: 2
+    
     .navbar-container
         overflow-x: auto
 
@@ -17,19 +21,20 @@ $navbar-item-margin-h ?= 0
         display: flex
         padding: 0
         flex-shrink: 0
+        flex-grow: 0
 
     .navbar-menu
-        flex-grow: 1
-        flex-shrink: 0
         overflow-x: auto
 
     .navbar-start
         justify-content: flex-start
+        margin-left: 1em
         margin-right: auto
 
     .navbar-end
         justify-content: flex-end
-        margin-left: auto
+        margin-left: 2.5em
+        margin-right: auto
 
     .navbar-item
         display: flex
@@ -41,15 +46,18 @@ $navbar-item-margin-h ?= 0
             background-color: transparent
 
     +until($navbar-breakpoint)
+        .navbar-item
+            padding: $navbar-item-padding-v $navbar-item-padding-h
+            margin: $navbar-item-margin-v $navbar-item-margin-h
         .navbar-menu
             justify-content: center
             box-shadow: none
 
         .navbar-start
-            margin-right: 0
+            margin-left: auto
 
         .navbar-end
-            margin-left: 0
+            margin-right: auto
 
 .navbar-logo
     img

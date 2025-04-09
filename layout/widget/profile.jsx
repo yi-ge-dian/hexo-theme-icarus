@@ -7,9 +7,10 @@ class Profile extends Component {
         if (!links.length) {
             return null;
         }
-        return <div class="level is-mobile is-multiline">
+        return <div class="level is-mobile" style="flex-wrap: wrap">
             {links.filter(link => typeof link === 'object').map(link => {
-                return <a class="level-item button is-transparent is-marginless"
+                return <a class="level-item button is-medium is-transparent is-marginless link-muted"
+                    style="padding-left: unset; padding-right: unset"
                     target="_blank" rel="me noopener" title={link.name} href={link.url}>
                     {'icon' in link ? <i class={link.icon}></i> : link.name}
                 </a>;
@@ -30,16 +31,16 @@ class Profile extends Component {
             socialLinks
         } = this.props;
         return <div class="card widget" data-type="profile">
-            <div class="card-content">
-                <nav class="level">
+            <div class="card-content" style="padding-bottom: 1rem">
+                <nav class="level" style="margin-top: .75em !important; margin-bottom: .75em !important">
                     <div class="level-item has-text-centered flex-shrink-1">
                         <div>
                             <figure class="image is-128x128 mx-auto mb-2">
                                 <img class={'avatar' + (avatarRounded ? ' is-rounded' : '')} src={avatar} alt={author} />
                             </figure>
-                            {author ? <p class="title is-size-4 is-block" style={{'line-height': 'inherit'}}>{author}</p> : null}
-                            {authorTitle ? <p class="is-size-6 is-block">{authorTitle}</p> : null}
-                            {location ? <p class="is-size-6 is-flex justify-content-center">
+                            {author ? <p class="title is-size-3 is-block line-height-inherit">{author}</p> : null}
+                            {authorTitle ? <p style="margin-top: .2em; font-size: 1.15em !important" class="is-size-6 is-block">{authorTitle}</p> : null}
+                            {location ? <p style="margin-top: 4px; opacity: 0.6" class="is-size-6 is-flex justify-content-center">
                                 <i class="fas fa-map-marker-alt mr-1"></i>
                                 <span>{location}</span>
                             </p> : null}
@@ -72,8 +73,8 @@ class Profile extends Component {
                         </div>
                     </div>
                 </nav>
-                {followLink ? <div class="level">
-                    <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="me noopener">{followTitle}</a>
+                {followLink ? <div class="level" style="margin-bottom: .5em !important">
+                    <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="noopener">{followTitle}</a>
                 </div> : null}
                 {socialLinks ? this.renderSocialLinks(socialLinks) : null}
             </div>
