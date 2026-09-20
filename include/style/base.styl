@@ -72,6 +72,10 @@ $colors = merge($colors, $custom-colors)
 
 html
     height: 100%
+    // 覆盖 bulma 的 antialiased/grayscale：macOS 下会让全文偏细发虚，
+    // 恢复 auto（子像素渲染）后文字更实、衬线字体更耐看
+    -moz-osx-font-smoothing: auto
+    -webkit-font-smoothing: auto
     -webkit-text-size-adjust: 100%
     -moz-text-size-adjust: 100%
     -ms-text-size-adjust: 100%

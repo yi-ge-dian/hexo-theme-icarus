@@ -62,7 +62,36 @@ article
             margin-bottom: .5rem
 
         .article-more
-            @extend .button.is-light
+            border: 1px solid transparent
+            border-radius: 9999px
+            padding: .6em 2em
+            font-size: 1.25rem
+            font-weight: 700
+            letter-spacing: .06em
+            color: #2a5db0
+            // 白底 + 渐变描边胶囊：与站点页脚/导航的渐变风格一致
+            background: linear-gradient(#fff, #fff) padding-box, linear-gradient(90deg, #52E5E7 0%, #130CB7 100%) border-box
+            box-shadow: 0 2px 6px rgba(19, 12, 183, .12)
+            transition: transform .2s ease, box-shadow .2s ease, color .2s ease, background .2s ease
+
+            &::after
+                content: '\2192'
+                display: inline-block
+                margin-left: .4em
+                transition: transform .2s ease
+
+            &:hover, &:focus
+                color: #fff
+                background: linear-gradient(90deg, #2a5db0 0%, #130CB7 100%)
+                box-shadow: 0 5px 14px rgba(19, 12, 183, .25)
+                transform: translateY(-2px)
+
+                &::after
+                    transform: translateX(3px)
+
+            &:active
+                transform: translateY(0)
+                box-shadow: 0 2px 6px rgba(19, 12, 183, .2)
 
         .content
             word-wrap: break-word
